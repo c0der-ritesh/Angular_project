@@ -1,0 +1,36 @@
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form *ngIf="activeForm === 'register'">
+
+        <h3 style="text-decoration: underline;">Signup</h3>
+
+        <label for="name">Name</label>
+        <input type="text" placeholder="Fullname" name = " name" [(ngModel)]="registerObj.name" id="name">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" name="email" [(ngModel)]="registerObj.email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="registerObj.password" id="password">
+
+        <button type="submit" (click)="registerForm()">Signup</button>
+        <p (click)="toggleForm('login')">
+            Already have a Account ?  <span class="highlighted"  style="color: blueviolet;">Login</span>
+        </p>
+    </form>
+    <form *ngIf="activeForm === 'login'">
+        <h3 style="text-decoration: underline;">Login</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" name="email" [(ngModel)]="loginObj.email" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" name="password" [(ngModel)]="loginObj.password" id="password">
+
+        <button type="submit" (click)="loginForm()">Log In</button>
+        <p (click)="toggleForm('register')">
+            New here ? <span class="highlighted" style="color: blueviolet;">Signup</span>
+        </p>
+    </form>
